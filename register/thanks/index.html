@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet"  href="/fonts/et-line-font/style.css">
+    <link rel="icon" href="/logo.png">
+    <title>Pomyślnie zarejestrowano || Chat application</title>
+<style>
+    :root{
+        --shadow-color:rgb(146, 146, 146);
+    }
+    body{
+        background-color: rgb(247, 247, 247);
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        font-family: Open Sans;
+        overflow-x: hidden;
+    }
+    header{
+        background-color: rgb(255, 255, 255);
+        height: 50px;
+        width: 100%;
+        min-width: 350px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #header-title{
+        margin-right: 10px;
+    }
+    #header-left{
+        display: flex;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+    }
+    #header-logo{
+        margin: 5px;
+        margin-right: 20px;
+        height: calc(100% - 10px);
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 780px;
+        height: calc(100vh - 50px);
+        width: 100vw;
+        min-width: 350px;
+    }
+    #main{
+        width: 400px;
+        height: 210px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 5px 40px var(--shadow-color),
+                    0 0 15px var(--shadow-color);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 15px;
+        margin-top: -50px;
+    }
+    #title{
+        margin-top: 40px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+    .forwarding-text{
+        font-size: 12px;
+        color: gray;
+    }
+    #forwarding-number{
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+    }
+    #forwarding-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    a{
+        margin-top: 10px;
+        font-size: 12px;
+        color: rgb(33, 54, 70);
+        text-decoration: underline;  
+    }
+    a:active{
+        color: rgb(33, 54, 70);
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div id="header-left">
+            <img src="/logo.png" id="header-logo" alt="logo" height="">
+            <div id="header-title">Chat application</div>
+        </div>
+    </header>
+    <main>
+        <div id="main">
+            <div id="title">Pomyślnie zarejestrowano.</div>
+            <div id="forwarding-box">
+                <div class="forwarding-text">Automatyczne przekierowanie nastąpi za</div>
+                <div id="forwarding-number">4</div>
+                <div class="forwarding-text">sekundy.</div>
+                <a href="/login">Jeśli to nie nastąpi kniknij tutaj</a>
+            </div>
+        </div>
+    </main>
+    <script>
+       setInterval(()=>{
+           if(parseInt(document.getElementById("forwarding-number").innerHTML) <= 0){
+            location.replace("/login");
+            return
+           }
+        document.getElementById("forwarding-number").innerHTML = parseInt(document.getElementById("forwarding-number").innerHTML) - 1
+       },1000)
+    </script>
+</body>
+</html>
